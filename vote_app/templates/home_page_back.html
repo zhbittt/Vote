@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ record.title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .box {
+            padding: 20px;
+            margin-bottom: 45px;
+        }
+
+        .title {
+            color: #ffffff;
+            margin: -110px 35px 0 50px;
+            font-size: 68px;
+            font-family: "PingFang SC";
+        }
+        .text_86X1{
+            width: 88px;
+            height: 34px;
+            left: 47px;
+            top: 224px;
+            color: rgba(80, 80, 80, 1);
+            font-size: 48px;
+            font-family: "PingFang SC";
+            line-height: 150%;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .text_63X1{
+            width: 100%;
+            height: 100%;
+            left: 6px;
+            top: 269px;
+            color: rgba(29, 29, 29, 1);
+            font-size: 40px;
+            font-family: "PingFang SC";
+            line-height: 150%;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .t_icon {
+            font-size: 54px;
+            margin: 0 2px;
+        }
+
+        .t_hr {
+            border: 1px solid #e8e8e8;
+            display: inline-block;
+            margin: 15px 2px;
+            width: 70%;
+        }
+
+        .t_content {
+            font-family: "PingFang SC";
+            padding: 0 10px;
+        }
+        .image_13X1{
+            width: 100%;
+            height: 400px;
+            top: -2px;
+        }
+        .vote_btn {
+            position: fixed;
+            bottom: 0;
+            font-size: 45px;
+            height: 160px;
+            text-align: center;
+            line-height: 130px;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <div class="row">
+            {#      TODO 修正      #}
+            <img class="image_13X1" src="/media/upload/{{ record.img }}" alt="{{ record.title }}">
+{#            <img class="image_13X1" src="/{{ record.img }}" alt="{{ record.title }}">#}
+            <div class="title">{{ record.title }}</div>
+        </div>
+
+        <div class="row box">
+            <div>
+                <span class="glyphicon glyphicon-asterisk t_icon"></span>
+                <span class="text_86X1">活动介绍</span>
+                <span><hr class="t_hr"></span>
+            </div>
+            <div class="text_63X1 t_content">
+                {{ record.content }}
+            </div>
+        </div>
+
+        <div class="row box">
+            <div>
+                <span class="glyphicon glyphicon-asterisk t_icon"></span>
+                <span class="text_86X1">投票规则</span>
+                <span><hr class="t_hr"></span>
+            </div>
+            <div class="text_63X1 t_content">
+                {{ record.rule }}
+{#                1. 将导航条内放置品牌标志的地方替换为#}
+{#                2. 元素即可展示自己的品牌图标。#}
+{#                3. 由于 .navbar-brand 已经被设置了内补（padding）和高度（height），#}
+{#                4.你需要根据自己的情况添加一些 CSS 代码从而覆盖默认设置。#}
+            </div>
+        </div>
+
+        <div class="row">
+            <a href="/vote/index/{{ record.id }}"  class="btn btn-primary btn-lg btn-block vote_btn">去投票</a>
+{#            <button type="button" class="btn btn-primary btn-lg btn-block" style="position: fixed; bottom: 0;">去投票</button>#}
+        </div>
+
+    </div>
+</body>
+</html>
